@@ -1,0 +1,17 @@
+import React from "react";
+import Navbar from "./Components/Navbar";
+import Main from "./Components/Main";
+import AboutUs from "./Components/AboutUs";
+import Product from "./Components/Product";
+function App() {
+  return (
+    <div className="">
+      <Navbar />
+      <Main />
+      <Product />
+      <AboutUs />
+    </div>
+  );
+}
+
+export default App;
