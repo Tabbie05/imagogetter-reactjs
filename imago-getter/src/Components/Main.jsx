@@ -34,11 +34,11 @@ const Main = () => {
 
   return (
     <div className="w-full h-screen flex items-center justify-center mt-16">
-      <div className="relative  w-[1300] overflow-hidden rounded-lg flex items-center justify-center">
+      <div className="relative w-[1300px] overflow-hidden rounded-lg flex items-center justify-center">
         {/* Prev button */}
         <button
           onClick={prevVideo}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 p-4 text-white text-5xl rounded-full  bg-opacity-40 hover:bg-opacity-70 transition select-none"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 p-4 text-white text-5xl  bg-opacity-40 hover:bg-opacity-70 transition select-none"
           aria-label="Previous Video"
         >
           &lt;
@@ -61,7 +61,7 @@ const Main = () => {
         {/* Next button */}
         <button
           onClick={nextVideo}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 p-4 text-white text-5xl rounded-full bg-opacity-40 hover:bg-opacity-70 transition select-none"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 p-4 text-white text-5xl  bg-opacity-40 hover:bg-opacity-70 transition select-none"
           aria-label="Next Video"
         >
           &gt;

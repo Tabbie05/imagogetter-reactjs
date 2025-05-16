@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const Navbar = () => {
   return (
-    <div className=" sticky w-full h-16 px-6 mt-6 flex justify-between items-center bg-white shadow-md">
+    <div className="sticky top-0 z-50 w-full h-16 px-6 mt-6 flex justify-between items-center bg-white shadow-md">
       {/* Logo */}
       <div className="px-6">
         <img src={logo} alt="Imago Getter Logo" className="h-40 w-auto ml-7" />
@@ -28,7 +28,7 @@ const Navbar = () => {
         <motion.button
           whileHover={{
             scale: 1.1,
-            backgroundColor: "#60a5fa", // lighter blue on hover
+            backgroundColor: "#60a5fa", 
           }}
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.3 }}
