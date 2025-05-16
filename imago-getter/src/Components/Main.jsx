@@ -1,62 +1,74 @@
-import React, { useState, useRef } from 'react';
-import vid1 from '../assets/hand-disinfectant.mp4';
-import vid2 from '../assets/fogging-disinfectant.mp4';
-// import vid3 from '../assets/handwash.mp4';
-// import vid4 from '../assets/handgermfree.mp4';
-import vid5 from '../assets/germs-free.mp4';
-import vid6 from '../assets/instrumental-disinfectant.mp4';
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import React, { useState, useEffect, useRef } from "react";
+import vid1 from "../assets/hand-disinfectant.mp4";
+import vid2 from "../assets/fogging-disinfectant.mp4";
+import vid5 from "../assets/germs-free.mp4";
+import vid6 from "../assets/instrumental-disinfectant.mp4";
 
 const Main = () => {
-    const videoLinks = [vid1, vid2, vid5, vid6];
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const videoRef = useRef(null);
+  const videoLinks = [vid1, vid2, vid5, vid6];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+  const timeoutRef = useRef(null);
 
-    const nextVideo = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % videoLinks.length);
-    };
+  const nextVideo = () => {
+    setFade(false); // start fade out
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      setCurrentIndex((prev) => (prev === videoLinks.length - 1 ? 0 : prev + 1));
+      setFade(true); // fade in after index changes
+    }, 400); // fade out duration
+  };
 
-    const prevVideo = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + videoLinks.length) % videoLinks.length);
-    };
+  const prevVideo = () => {
+    setFade(false);
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      setCurrentIndex((prev) => (prev === 0 ? videoLinks.length - 1 : prev - 1));
+      setFade(true);
+    }, 400);
+  };
 
-    const handleEnded = () => {
-        nextVideo();
-    };
+  useEffect(() => {
+    return () => clearTimeout(timeoutRef.current);
+  }, []);
 
-    return (
-        <div className="w-full h-screen flex flex-col items-center justify-center relative">
-            <div className="carousel relative w-[1200px] h-screen mt-10 ">
-                {/* Previous button */}
-                <button
-                    onClick={prevVideo}
-                    className="absolute ml-4 left-0 top-1/2 transform -translate-y-1/2 text-4xl p-4 text-white rounded-full hover:bg-gray-700 transition-all z-10"
-                >
-                    &lt;
-                </button>
+  return (
+    <div className="w-full h-screen flex items-center justify-center mt-16">
+      <div className="relative  w-[1300] overflow-hidden rounded-lg flex items-center justify-center">
+        {/* Prev button */}
+        <button
+          onClick={prevVideo}
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 p-4 text-white text-5xl rounded-full  bg-opacity-40 hover:bg-opacity-70 transition select-none"
+          aria-label="Previous Video"
+        >
+          &lt;
+        </button>
 
-                {/* Video tag instead of iframe */}
-                <video
-                    ref={videoRef}
-                    src={videoLinks[currentIndex]}
-                    onEnded={handleEnded}
-                    autoPlay
-                    muted
-                    loop={false}
-                    controls={false}
-                    className="w-full h-full object-cover"
-                />
+        {/* Single video with fade */}
+        <video
+          key={currentIndex} // key triggers re-render on index change
+          src={videoLinks[currentIndex]}
+          muted
+          autoPlay
+          loop={false}
+          controls={false}
+          playsInline
+          className={`w-full h-full object-contain transition-opacity duration-400 ${
+            fade ? "opacity-100" : "opacity-0"
+          }`}
+        />
 
-                {/* Next button */}
-                <button
-                    onClick={nextVideo}
-                    className="absolute mr-4 right-0 top-1/2 transform -translate-y-1/2 text-4xl p-4 text-white rounded-full hover:bg-gray-700 transition-all z-10"
-                >
-                    &gt;
-                </button>
-            </div>
-        </div>
-    );
+        {/* Next button */}
+        <button
+          onClick={nextVideo}
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 p-4 text-white text-5xl rounded-full bg-opacity-40 hover:bg-opacity-70 transition select-none"
+          aria-label="Next Video"
+        >
+          &gt;
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export default Main;

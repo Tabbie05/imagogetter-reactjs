@@ -19,11 +19,11 @@ const Navbar = () => {
       </div>
 
       {/* Search bar with animated button */}
-      <div className="flex items-center gap-3 max-w-md w-full mr-6">
+      <div className="flex items-center gap-3 max-w-md w-full ml-6">
         <input
           type="text"
           placeholder="SEARCH FOR ..."
-          className="flex-grow bg-gray-100 h-10 rounded-md px-2 text-sm focus:outline-none"
+          className="bg-gray-100 h-10 rounded-md px-2 text-sm focus:outline-none"
         />
         <motion.button
           whileHover={{
