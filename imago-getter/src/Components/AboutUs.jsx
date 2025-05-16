@@ -10,10 +10,11 @@ const AboutUs = () => {
         {/* Left Section */}
         <div className="w-full md:w-1/2 pr-8">
           <h2 className="text-5xl font-bold mb-2">About</h2>
-          <div className="flex gap-2"><p className="text-3xl font-semibold mb-4 text-blue-600">Imago</p>
-           <p className="text-3xl font-semibold mb-4 text-gray-600">&</p>
-            <p className="text-3xl font-semibold mb-4 text-green-600">Getter</p></div>
-          
+          <div className="flex gap-2">
+            <p className="text-3xl font-semibold mb-4 text-blue-600">Imago</p>
+            <p className="text-3xl font-semibold mb-4 text-gray-600">&</p>
+            <p className="text-3xl font-semibold mb-4 text-green-600">Getter</p>
+          </div>
           <p className="text-gray-700 mb-4">
             IMAGO & GETTER deals in hygiene & disinfectant range of products for Pharma Manufacturing, Healthcare, Animal Husbandry & Cold Storage Industry.
             IMAGO & GETTER is the only company where you get all the globally available disinfectant chemistries under one roof.
@@ -21,7 +22,7 @@ const AboutUs = () => {
             Every Product batch is microbiologically tested for consistency in results.
           </p>
           <div className="flex justify-center">
-            <img src={img1} alt="Imago Logo" className="w-40 mt-4 mx-auto w-[350px]" />
+            <img src={img1} alt="Imago Logo" className="mt-4 mx-auto w-[350px]" />
           </div>
         </div>
 
@@ -31,7 +32,7 @@ const AboutUs = () => {
         {/* Right Section */}
         <div className="w-full md:w-1/2 pl-8">
           <div className="flex justify-center">
-            <img src={img2} alt="" className="w-40 mb-4 mx-auto w-[250px]" />
+            <img src={img2} alt="Disinfectant" className="mb-4 mx-auto w-[250px]" />
           </div>
           <p className="text-gray-700 mb-4">
             Our commercial team & supply chain partners help us to connect every corner of the country.
@@ -39,7 +40,7 @@ const AboutUs = () => {
             All the Disinfectant are tested according to European Nation Standards (EN- Standards) under clean and dirty conditions to ensure best product for your needs.
           </p>
           <div className="flex justify-center">
-            <img src={img3} alt="" className="w-40 mb-4 mx-auto w-[300px]" />
+            <img src={img3} alt="Microbial testing" className="mb-4 mx-auto w-[300px]" />
           </div>
         </div>
       </div>
