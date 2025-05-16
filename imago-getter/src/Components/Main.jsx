@@ -5,6 +5,7 @@ import vid2 from '../assets/fogging-disinfectant.mp4';
 // import vid4 from '../assets/handgermfree.mp4';
 import vid5 from '../assets/germs-free.mp4';
 import vid6 from '../assets/instrumental-disinfectant.mp4';
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const Main = () => {
     const videoLinks = [vid1, vid2, vid5, vid6];
