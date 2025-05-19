@@ -54,7 +54,7 @@ const Main = () => {
           loop={false}
           controls={false}
           playsInline
-          className={`w-full h-[600px] sm:h-[400px] md:h-[900px] object-cover transition-opacity duration-500 ${
+          className={`w-full h-[600px] sm:h-[800px] md:h-[1200px] object-cover transition-opacity duration-500 ${
             fade ? "opacity-100" : "opacity-0"
           }`}
         />

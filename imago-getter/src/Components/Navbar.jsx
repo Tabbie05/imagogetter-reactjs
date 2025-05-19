@@ -7,7 +7,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="sticky top-0 z-50 w-full shadow-md ">
+    <div className="sticky top-0 z-50 w-full shadow-md bg-white">
       {/* Navbar Container */}
       <div className="flex items-center justify-between h-24 px-4 sm:px-6">
 
