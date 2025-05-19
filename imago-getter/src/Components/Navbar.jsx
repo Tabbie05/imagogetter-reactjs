@@ -57,7 +57,7 @@ const Navbar = () => {
 
       {/* Mobile Nav */}
       {menuOpen && (
-        <div className="lg:hidden px-6 pb-4 bg-[#E3EEB2]">
+        <div className="lg:hidden px-6 pb-4 ">
           <div className="flex flex-col gap-4 font-semibold text-[#332D56]">
             <span className="hover:text-[#71C0BB] transition">HOME</span>
             <span className="hover:text-[#71C0BB] transition">SERVICE</span>
