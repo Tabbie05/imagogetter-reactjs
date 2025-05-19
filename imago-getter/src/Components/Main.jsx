@@ -11,12 +11,12 @@ const Main = () => {
   const timeoutRef = useRef(null);
 
   const nextVideo = () => {
-    setFade(false); // start fade out
+    setFade(false);
     clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => {
       setCurrentIndex((prev) => (prev === videoLinks.length - 1 ? 0 : prev + 1));
-      setFade(true); // fade in after index changes
-    }, 400); // fade out duration
+      setFade(true);
+    }, 400);
   };
 
   const prevVideo = () => {
@@ -33,27 +33,28 @@ const Main = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen flex items-center justify-center mt-16">
-      <div className="relative w-[1300px] overflow-hidden rounded-lg flex items-center justify-center">
+    <div className="w-full min-h-screen flex items-center justify-center px-4 py-8 bg-blue-300">
+      <div className="relative w-full max-w-6xl overflow-hidden rounded-xl shadow-lg border border-[#71C0BB]">
+        
         {/* Prev button */}
         <button
           onClick={prevVideo}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 p-4 text-white text-5xl  bg-opacity-40 hover:bg-opacity-70 transition select-none"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-4 text-white text-3xl sm:text-5xl bg-[#4E6688] bg-opacity-60 hover:bg-opacity-90 rounded-full transition"
           aria-label="Previous Video"
         >
           &lt;
         </button>
 
-        {/* Single video with fade */}
+        {/* Video */}
         <video
-          key={currentIndex} // key triggers re-render on index change
+          key={currentIndex}
           src={videoLinks[currentIndex]}
           muted
           autoPlay
           loop={false}
           controls={false}
           playsInline
-          className={`w-full h-full object-contain transition-opacity duration-400 ${
+          className={`w-full h-[200px] sm:h-[400px] md:h-[900px] object-cover transition-opacity duration-500 ${
             fade ? "opacity-100" : "opacity-0"
           }`}
         />
@@ -61,7 +62,7 @@ const Main = () => {
         {/* Next button */}
         <button
           onClick={nextVideo}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 p-4 text-white text-5xl  bg-opacity-40 hover:bg-opacity-70 transition select-none"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-4 text-white text-3xl sm:text-5xl bg-[#4E6688] bg-opacity-60 hover:bg-opacity-90 rounded-full transition"
           aria-label="Next Video"
         >
           &gt;

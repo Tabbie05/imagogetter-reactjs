@@ -11,7 +11,7 @@ const Product = () => {
   const scrollRight = () => scrollRef.current.scrollBy({ left: 300, behavior: 'smooth' })
 
   return (
-    <div className={`w-full min-h-screen flex flex-col justify-start py-20 transition-colors duration-500 ${bgColor} relative`}>
+    <div className={`w-full rounded-4xl min-h-screen flex flex-col justify-start py-20 transition-colors duration-500 ${bgColor} relative`}>
       {/* Heading */}
       <div className="px-8 mb-8">
         <h2 className="text-4xl font-bold leading-tight text-left text-gray-900">

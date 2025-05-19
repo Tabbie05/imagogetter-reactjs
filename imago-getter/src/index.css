@@ -71,3 +71,55 @@
   background-size: 200% 200%;
   animation: bg-pan 15s linear infinite;
 }
+@media (max-width: 1024px) {
+  .w-max {
+    width: auto !important;
+  }
+  .group {
+    flex-basis: auto !important;
+  }
+  .w-64 {
+    width: 16rem !important;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+  .hide-scrollbar::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .w-64 {
+    width: 12rem !important;
+  }
+  .gap-6 {
+    gap: 4rem !important;
+  }
+  .text-4xl {
+    font-size: 2rem !important;
+  }
+  .text-xl {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .w-64 {
+    width: 11rem !important;
+  }
+  .text-4xl {
+    font-size: 1.5rem !important;
+  }
+  .p-4 {
+    padding: 2px !important;
+  }
+  .gap-6 {
+    gap: 2rem !important;
+  }
+}
